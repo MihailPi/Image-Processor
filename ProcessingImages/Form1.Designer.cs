@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,13 +80,16 @@
             // 
             // trackBar1
             // 
-            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar1.Cursor = System.Windows.Forms.Cursors.NoMoveVert;
             this.trackBar1.Location = new System.Drawing.Point(0, 0);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(43, 422);
+            this.trackBar1.Size = new System.Drawing.Size(45, 422);
             this.trackBar1.TabIndex = 1;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar1.Value = 1;
@@ -101,7 +108,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.saveImageToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -109,13 +117,25 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
+            // saveImageToolStripMenuItem
+            // 
+            this.saveImageToolStripMenuItem.Name = "saveImageToolStripMenuItem";
+            this.saveImageToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.saveImageToolStripMenuItem.Text = "Save New Image";
+            this.saveImageToolStripMenuItem.Click += new System.EventHandler(this.saveImageToolStripMenuItem_Click);
+            // 
             // openFileDialog1
             // 
-            this.openFileDialog1.Filter = "Images|*.bmp;*.png;*.jpg;";
+            this.openFileDialog1.Filter = "Images (*.bmp)(*.png)(*.jpg)|*.bmp;*.png;*.jpg;";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.CreatePrompt = true;
+            this.saveFileDialog1.Filter = "PNG (*.png)|*.png;|JPEG (*.jpg)|*.jpg";
             // 
             // Form1
             // 
@@ -126,7 +146,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "0%";
+            this.Text = "Image Processor";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
@@ -150,6 +170,9 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem saveImageToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

@@ -11,6 +11,7 @@ namespace ProcessingImages
     {
         private List<Bitmap> _bitmapsList = new List<Bitmap>();
         private Random _random = new Random();
+
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +31,10 @@ namespace ProcessingImages
                 menuStrip1.Enabled = trackBar1.Enabled = true;
                 sw.Stop();
                 Text = $"Processing time: {sw.Elapsed}";
+
+                //  Всплывающая подсказка
+                toolTip1.Show("Move it to change image", 
+                    trackBar1, -50, trackBar1.Height-50);
             }
         }
 
@@ -93,6 +98,17 @@ namespace ProcessingImages
                 return;
 
             pictureBox1.Image = _bitmapsList[trackBar1.Value-1];
+            //  Уберает подсказку
+            toolTip1.RemoveAll();
+        }
+
+        //  Сохранение нового изображения
+        private void saveImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                _bitmapsList[trackBar1.Value - 1].Save(saveFileDialog1.FileName);
+            }
         }
     }
 }
